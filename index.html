@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HLS & DASH</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #7D3F98, #00AEEF, #1D1E6E);
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+        font-size: 1.5em;
+        color: #FFFFFF;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        background: #333333;
+        padding: 10px 20px;
+        border-radius: 2px;
+    }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .stream-box {
+            background-color: #fff;
+            border: 2px solid #000;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        video {
+            width: 90%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .stream-url {
+            width: 65%;
+            padding: 8px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .media-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .audio-visualizer {
+            display: flex;
+            flex-direction: column;
+            margin-left: 10px;
+            border: 2px solid #000;
+            width: 20px;
+            height: 130px;
+            justify-content: space-between;
+        }
+
+        .bar {
+            width: 100%;
+            background-color: #28a745;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: 2px solid #000;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        select {
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    
+
+    <h1>HLS & DASH</h1>
+
+    <div class="container">
+        <!-- Stream Box 1 -->
+        <div class="stream-box">
+            <!-- Dropdown to select HLS or DASH -->
+            <select id="playerType1" class="url-input">
+                <option value="hls">HLS</option>
+                <option value="dash">DASH</option>
+            </select>
+            <input type="text" class="url-input" id="url1" placeholder="Enter Stream URL">
+            <div class="media-section">
+                <video id="video1" controls></video>
+                <div class="audio-visualizer" id="visualizer1"></div>
+            </div>
+            <button onclick="playStream('video1', 'visualizer1', 'url1', 'playerType1')">Play</button>
+        </div>
+    
+
+        <!-- Stream Box 2 -->
+        <div class="stream-box">
+            <!-- Dropdown to select HLS or DASH -->
+            <select id="playerType2" class="url-input">
+                <option value="hls">HLS</option>
+                <option value="dash">DASH</option>
+            </select>
+            <input type="text" class="url-input" id="url2" placeholder="Enter Stream URL">
+            <div class="media-section">
+                <video id="video2" controls></video>
+                <div class="audio-visualizer" id="visualizer2"></div>
+            </div>
+            <button onclick="playStream('video2', 'visualizer2', 'url2', 'playerType2')">Play</button>
+        </div>
+    
+
+        <!-- Stream Box 3 -->
+        <div class="stream-box">
+            <!-- Dropdown to select HLS or DASH -->
+            <select id="playerType3" class="url-input">
+                <option value="hls">HLS</option>
+                <option value="dash">DASH</option>
+            </select>
+            <input type="text" class="url-input" id="url3" placeholder="Enter Stream URL">
+            <div class="media-section">
+                <video id="video3" controls></video>
+                <div class="audio-visualizer" id="visualizer3"></div>
+            </div>
+            <button onclick="playStream('video3', 'visualizer3', 'url3', 'playerType3')">Play</button>
+        </div>
+    
+
+        <!-- Stream Box 4 -->
+        <div class="stream-box">
+            <!-- Dropdown to select HLS or DASH -->
+            <select id="playerType4" class="url-input">
+                <option value="hls">HLS</option>
+                <option value="dash">DASH</option>
+            </select>
+            <input type="text" class="url-input" id="url4" placeholder="Enter Stream URL">
+            <div class="media-section">
+                <video id="video4" controls></video>
+                <div class="audio-visualizer" id="visualizer4"></div>
+            </div>
+            <button onclick="playStream('video4', 'visualizer4', 'url4', 'playerType4')">Play</button>
+        </div>
+    
+
+         <!-- Stream Box 5 -->
+         <div class="stream-box">
+            <!-- Dropdown to select HLS or DASH -->
+            <select id="playerType5" class="url-input">
+                <option value="hls">HLS</option>
+                <option value="dash">DASH</option>
+            </select>
+            <input type="text" class="url-input" id="url5" placeholder="Enter Stream URL">
+            <div class="media-section">
+                <video id="video5" controls></video>
+                <div class="audio-visualizer" id="visualizer5"></div>
+            </div>
+            <button onclick="playStream('video5', 'visualizer5', 'url1', 'playerType5')">Play</button>
+        </div>
+    
+
+       <!-- Stream Box 6 -->
+       <div class="stream-box">
+        <!-- Dropdown to select HLS or DASH -->
+        <select id="playerType6" class="url-input">
+            <option value="hls">HLS</option>
+            <option value="dash">DASH</option>
+        </select>
+        <input type="text" class="url-input" id="url1" placeholder="Enter Stream URL">
+        <div class="media-section">
+            <video id="video6" controls></video>
+            <div class="audio-visualizer" id="visualizer6"></div>
+        </div>
+        <button onclick="playStream('video6', 'visualizer6', 'url6', 'playerType6')">Play</button>
+    </div>
+
+
+        <!-- Stream Box 7 -->
+        <div class="stream-box">
+            <!-- Dropdown to select HLS or DASH -->
+            <select id="playerType7" class="url-input">
+                <option value="hls">HLS</option>
+                <option value="dash">DASH</option>
+            </select>
+            <input type="text" class="url-input" id="url7" placeholder="Enter Stream URL">
+            <div class="media-section">
+                <video id="video7" controls></video>
+                <div class="audio-visualizer" id="visualizer7"></div>
+            </div>
+            <button onclick="playStream('video7', 'visualizer7', 'url7', 'playerType7')">Play</button>
+        </div>
+    
+
+        <!-- Stream Box 8 -->
+        <div class="stream-box">
+            <!-- Dropdown to select HLS or DASH -->
+            <select id="playerType8" class="url-input">
+                <option value="hls">HLS</option>
+                <option value="dash">DASH</option>
+            </select>
+            <input type="text" class="url-input" id="url8" placeholder="Enter Stream URL">
+            <div class="media-section">
+                <video id="video8" controls></video>
+                <div class="audio-visualizer" id="visualizer8"></div>
+            </div>
+            <button onclick="playStream('video8', 'visualizer8', 'url8', 'playerType8')">Play</button>
+        </div>
+    
+
+       <!-- Stream Box 9 -->
+       <div class="stream-box">
+        <!-- Dropdown to select HLS or DASH -->
+        <select id="playerType9" class="url-input">
+            <option value="hls">HLS</option>
+            <option value="dash">DASH</option>
+        </select>
+        <input type="text" class="url-input" id="url9" placeholder="Enter Stream URL">
+        <div class="media-section">
+            <video id="video9" controls></video>
+            <div class="audio-visualizer" id="visualizer9"></div>
+        </div>
+        <button onclick="playStream('video9', 'visualizer9', 'url9', 'playerType9')">Play</button>
+    </div>
+
+  </div>  
+
+
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+<script>
+    function createAudioVisualizer(audioContext, analyser, visualizerId) {
+        const visualizer = document.getElementById(visualizerId);
+        visualizer.innerHTML = ''; // Clear any existing bars
+        const bars = 16; // Number of bars in visualizer
+
+        // Create bars dynamically
+        for (let i = 0; i < bars; i++) {
+            const bar = document.createElement('div');
+            bar.classList.add('bar');
+            bar.style.height = `${100 / bars}%`;
+            visualizer.appendChild(bar);
+        }
+
+        const barElements = visualizer.getElementsByClassName('bar');
+        const frequencyData = new Uint8Array(analyser.frequencyBinCount);
+
+        function renderFrame() {
+            analyser.getByteFrequencyData(frequencyData);
+            for (let i = 0; i < bars; i++) {
+                const barHeight = (frequencyData[i] / 255) * 100;
+                barElements[i].style.backgroundColor = `hsl(${barHeight * 1.2}, 100%, 50%)`; // Adjust height based on frequency data
+            }
+            requestAnimationFrame(renderFrame);
+        }
+
+        renderFrame();
+    }
+
+    function playStream(videoId, visualizerId, urlInputId, playerTypeId) {
+        const video = document.getElementById(videoId);
+        const streamUrl = document.getElementById(urlInputId).value;
+        const playerType = document.getElementById(playerTypeId).value;
+
+        if (streamUrl.trim() === "") {
+            alert("Please enter a valid stream URL.");
+            return;
+        }
+
+        if (playerType === 'hls') {
+            if (Hls.isSupported()) {
+                const hls = new Hls();
+                hls.loadSource(streamUrl);
+                hls.attachMedia(video);
+                hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                    video.play();
+
+                // Set up Web Audio API for visualizer
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const source = audioContext.createMediaElementSource(video);
+                const analyser = audioContext.createAnalyser();
+                analyser.fftSize = 32; // Lower size for fewer bars
+                source.connect(analyser);
+                analyser.connect(audioContext.destination);
+
+                // Create visualizer
+                createAudioVisualizer(audioContext, analyser, visualizerId);
+            });
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = hlsUrl;
+            video.play();
+
+            // Set up Web Audio API for visualizer
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const source = audioContext.createMediaElementSource(video);
+            const analyser = audioContext.createAnalyser();
+            analyser.fftSize = 32;
+            source.connect(analyser);
+            analyser.connect(audioContext.destination);
+
+            // Create visualizer
+            createAudioVisualizer(audioContext, analyser, visualizerId);
+        }
+        } else if (playerType === 'dash') {
+            const player = dashjs.MediaPlayer().create();
+            player.initialize(video, streamUrl, true);
+
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const source = audioContext.createMediaElementSource(video);
+            const analyser = audioContext.createAnalyser();
+            analyser.fftSize = 32;
+            source.connect(analyser);
+            analyser.connect(audioContext.destination);
+
+            createAudioVisualizer(audioContext, analyser, visualizerId);
+        }
+    }
+</script>
+
+</body>
+</html>
